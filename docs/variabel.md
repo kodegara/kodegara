@@ -34,6 +34,10 @@ Jika kita mencoba mengisi data pada variabel yang belum pernah dideklarasikan, m
 variabel123 = 123
 ```
 
+:::tip Penting
+Mengisi data pada variabel yang belum pernah dideklarasikan akan menimbulkan masalah
+:::
+
 ## Jenis-jenis variabel
 
 Ada tiga jenis variabel dalam Gara:
