@@ -12,9 +12,12 @@ Oleh karena itulah Gara diciptakan. Proyek yang pada awalnya disebut dengan _Pro
 
 Gara adalah suatu bahasa pemrograman dengan sintaksis bahasa Indonesia yang secara karakter:
 
-- **Berorientasi objek**, dimana apapun dalam Gara adalah objek.
+- **Berorientasi objek**, dimana apapun dalam Gara adalah objek yang berlandaskan pada suatu kelas.
 - **Dinamis**, memungkinkan pengguna untuk dapat lebih ekspresif dalam berkreasi.
-- **Fokus untuk anak-anak**, apapun dalam Gara didesain dengan fokus utama memungkinkan siapapun, terutama anak-anak, untuk dapat mencoba menguasai teknologi tanpa merasa canggung. Hal ini dicapai salah satunya dengan menjadikan Gara sebagai bahasa yang konsisten, sehingga seharusnya tidak ada dalam Gara suatu sintaksis yang dapat membingungkan pemrogram.
+- **Fokus untuk anak-anak**, dimana apapun dalam Gara didesain dengan fokus utama memungkinkan siapapun, terutama anak-anak, untuk dapat mencoba menguasai teknologi tanpa merasa canggung. Hal ini dicapai salah satunya dengan menjadikan Gara sebagai bahasa yang konsisten, sehingga seharusnya tidak ada dalam Gara suatu sintaksis yang dapat membingungkan pemrogram.
 - **Kaya**, dikarenakan meski Gara berfokus untuk pembelajaran, ia tidak boleh jauh dari kemungkinan diterapkannya Gara untuk keperluan bisnis, riset, dan keperluan profesional lainnya.
+- **Fungsional**, Gara menganut ide-ide fungsional seperti imutabilitas (_kekekalan_), ketuanan fungsi yang sejajar dengan tipe data pada umumnya, dan lain-lain.
+- **Inovatif**, Gara misalnya memiliki tipe data `Rangkap` (_Tuple_) yang memiliki sintaksisnya sendiri, suatu hal yang bahkan tidak dimiliki oleh bahasa Python, Ruby, JavaScript, dan banyak lainnya. Gara juga setia pada konsep seperti _overloading_ ("puncamuat"), suatu konsep yang tidak didukung oleh bahasa dinamis lain seperti Ruby dan Python.
 
-_Yuk_, mari kita lihat Gara secara lebih dekat. Untuk menggunakan Gara, kita bisa langsung menggunakan _browser_ _lho_ melalui lama taman belajar [Tadika Gara](http://tadika.kodegara.org).
+Untuk menggunakan Gara, kita bisa langsung menggunakan _browser_ _lho_, tanpa perlu instalasi, cukup buka laman taman belajar [Tadika Gara](https://tadika.kodegara.org). _Yuk_, mari kita bersama kuasai teknologi.
+

@@ -20,7 +20,7 @@ cetak("Halo, " + nama)
 Atau, menggunakan style pemrograman berbasis objek, yang tentunya akan kita pelajari dalam bagian selanjutnya.
 
 ```gara title="Halo berbasis objek"
-kelas Individu {
+kelas Orang {
   ada nama
 
   fn sta baru(nama) {
@@ -38,7 +38,7 @@ kelas Individu {
   }
 }
 
-ada gara = Individu.baru("Gara")
+ada gara = Orang.baru("Gara")
 gara.sapa()
 ```
 
