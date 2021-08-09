@@ -4,13 +4,13 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
   title: 'Bahasa Pemrograman Gara',
-  url: 'https://your-docusaurus-test-site.com',
+  url: 'https://kodegara.org',
   baseUrl: '/',
-  onBrokenLinks: 'warn',
+  onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/gara.png',
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'kodegara', // Usually your GitHub org/user name.
+  projectName: 'kodegara', // Usually your repo name.
   themeConfig: {
     navbar: {
       title: 'Gara',
