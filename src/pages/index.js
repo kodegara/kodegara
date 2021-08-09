@@ -6,7 +6,6 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import styles from './index.module.css'
 import HomepageFeatures from '../components/HomepageFeatures'
 import Head from '@docusaurus/Head'
-import useBaseUrl from '@docusaurus/useBaseUrl'
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
@@ -30,7 +29,7 @@ function HomepageHeader() {
 export default function Home() {
   const {siteConfig} = useDocusaurusContext();
 
-  const imgSrc = useBaseUrl("img/beranda-garafungsi.png")
+  const imgSrc = siteConfig.url + "/img/beranda-garafungsi.png"
   const title = "Bahasa Pemrograman Gara"
   const description = "Gara adalah bahasa pemrograman berbahasa Indonesia yang fungsional dan berorientasi objek. Dengan Gara, anak-anak dapat memelajari pemrograman tanpa mahir bahasa asing terlebih dahulu."
 
