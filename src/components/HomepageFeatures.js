@@ -4,42 +4,40 @@ import styles from './HomepageFeatures.module.css';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
-    Svg: require('../../static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'Fungsional',
+    image: "img/beranda-garafungsi.png",
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Elemen fungsional seperti imutabilitas dan fungsi berorde tinggi
+        menjadikan Gara sangat modern, kaya, dan <i>scalable</i>.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('../../static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Berbasis Objek',
+    image: "img/beranda-garaoop.png",
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Seluruh data adalah objek. Paradigma pemrograman yang lazim digunakan dalam membuat sistem di industri.
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('../../static/img/undraw_docusaurus_react.svg').default,
+    title: 'Ramah',
+    image: "img/beranda-garaindo.png",
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Memiliki sintaksis yang mudah dipelajari bagi penutur bahasa Indonesia yang ingin menjadi pemrogram handal.
       </>
     ),
   },
 ];
 
-function Feature({Svg, title, description}) {
+function Feature({image, title, description}) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
-        <Svg className={styles.featureSvg} alt={title} />
+        <img src={image} alt={title} height="300" />
       </div>
       <div className="text--center padding-horiz--md">
         <h3>{title}</h3>
