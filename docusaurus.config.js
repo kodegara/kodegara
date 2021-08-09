@@ -6,7 +6,7 @@ module.exports = {
   title: 'Bahasa Pemrograman Gara',
   url: 'https://your-docusaurus-test-site.com',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/gara.png',
   organizationName: 'facebook', // Usually your GitHub org/user name.
@@ -26,7 +26,7 @@ module.exports = {
           label: 'Tutorial',
         },
         {to: 'https://garatadika.herokuapp.com/', label: 'Editor', position: 'left'},
-        {to: '/blog', label: 'Blog', position: 'left'},
+        {to: 'blog', label: 'Blog', position: 'left'},
       ],
     },
     prism: {
