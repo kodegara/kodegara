@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './Footer.module.css'
 import Link from '@docusaurus/Link'
-import useGlobalData from '@docusaurus/useGlobalData'
+import BrowserOnly from '@docusaurus/BrowserOnly'
 
 const links = [
   {
@@ -19,20 +19,24 @@ const links = [
 ]
 
 export default function Footer() {
-  if (window.location.pathname == '/') {
-    return <></>
-  }
-
   return (
-    <section className={styles.footer}>
-      <img src='/img/gara-footer.png' className={styles.garawan} />
-      <ul className={styles.links}>
-        {links.map((link, id) => (
-          <li key={id}>
-            <Link to={link.path}>{link.text}</Link>
-          </li>
-        ))}
-      </ul>
-    </section>
+    <BrowserOnly>
+      {() => (
+        (window.location.pathname == '/') ? (
+          <></>
+        ) : (
+          <section className={styles.footer}>
+            <img src='/img/gara-footer.png' className={styles.garawan} />
+            <ul className={styles.links}>
+              {links.map((link, id) => (
+                <li key={id}>
+                  <Link to={link.path}>{link.text}</Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )
+      )}
+    </BrowserOnly>
   )
 }
