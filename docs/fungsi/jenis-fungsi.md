@@ -1,8 +1,8 @@
 ---
-sidebar_position: 5
+sidebar_position: 4
 ---
 
-# Fungsi
+# Jenis-jenis Fungsi
 
 Terdapat 3 jenis fungsi, atau aripicu, dalam Gara:
 
@@ -12,7 +12,10 @@ Terdapat 3 jenis fungsi, atau aripicu, dalam Gara:
 
 ## Fungsi bebas
 
-Fungsi bebas adalah fungsi yang tidak terikat pada suatu kelas.
+Fungsi bebas adalah fungsi yang tidak terikat pada suatu kelas. Fungsi ini dapat ditempatkan pada variabel:
+
+```gara
+```
 
 ```gara
 ada sapa = fn (nama) { "Hai, " + nama }

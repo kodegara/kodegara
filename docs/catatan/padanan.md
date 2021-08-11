@@ -6,6 +6,7 @@ sidebar_position: 2
 
 | Konteks | Bahasa Inggris | Bahasa Indonesia | Contoh |
 |---|---|---|---|
+| program | ... as first-class citizen | ketuanan ... | ketuanan fungsi |
 | variabel | assignment | penempatan | `a = 42` |
 | program | block | blok | `{}` |
 | program | callable | aripicu | metode, fungsi statis |
@@ -22,6 +23,7 @@ sidebar_position: 2
 | data | hash | peta | `{}` |
 | data | immutable | kekal | `Deret` |
 | program | identifier | pengenal | `var`, `Objek` |
+| kelas | inheritance | turunan | `kelas A -> B {}` |
 | kelas | instance | instansi | `Objek.baru` |
 | looping | iteration | iterasi | `dari (...)` |
 | kelas | method | metode | `fn abc() {}` |
@@ -31,7 +33,7 @@ sidebar_position: 2
 | logika | `null` | `nil` | `nil` |
 | fungsi | overload | peragaman | `fn a(a) {}; fn a(a, b) {}` |
 | fungsi | override | penimpaan | `fn jadiKata() {}` |
-| fungsi | polymorphic | pusparagam | `fn a(a) {}; fn a(a, b) {}` |
+| fungsi | polymorphism | pusparagam | `fn a(a) {}; fn a(a, b) {}` |
 | fungsi | return | utus | `utus 42` |
 | variabel | shadowing | membayangi | `ada a; fn (a) { a + 1 }(12)` |
 | variabel | spread (operator) | (operasi) keduk | `a, b = ..[1, 2]` |
@@ -39,7 +41,7 @@ sidebar_position: 2
 | fungsi | super | punca | `fn a() { punca }` |
 | kelas | subclass | kelas turunan | `kelas Integer -> Angka {}` |
 | kelas | superclass | kelas punca | `kelas Integer -> Angka {}` |
-| error | throw | lempar | `lempar masalah` |
+| masalah | throw | lempar | `lempar masalah` |
 | fungsi | toString | jadiKata | `fn jadiKata() {}` |
 | logika | `true` | `benar` | `benar` |
 | logika | truthy | sebenar | `1` |
