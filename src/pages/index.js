@@ -34,7 +34,7 @@ export default function Home() {
   const description = "Gara adalah bahasa pemrograman berbahasa Indonesia yang fungsional dan berorientasi objek. Dengan Gara, anak-anak dapat memelajari pemrograman tanpa mahir bahasa asing terlebih dahulu."
 
   return (
-    <Layout title={`Beranda | ${siteConfig.title}`}>
+    <Layout title={`Beranda`}>
       <Head>
         <meta charSet="utf-8" />
         <meta name="description" content={description} />
