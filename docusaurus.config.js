@@ -25,7 +25,7 @@ module.exports = {
           position: 'left',
           label: 'Tutorial',
         },
-        {to: 'https://garatadika.herokuapp.com/', label: 'Editor', position: 'left'},
+        {to: 'https://tadika.kodegara.org/', label: 'Editor', position: 'left'},
         {to: 'blog', label: 'Blog', position: 'left'},
       ],
     },

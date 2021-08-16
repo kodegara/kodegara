@@ -44,7 +44,7 @@ nkri.luasTanah = 1811570
 cetak("Terdapat " + nkri.kepadatan(276730535) + " penduduk per 1km2 di " + nkri.nama)
 ```
 
-Dengan menjalankan [kode diatas](https://garatadika.herokuapp.com/negara-kepadatan-1), kita akan mendapatkan hasil berikut:
+Dengan menjalankan [kode diatas](http://tadika.kodegara.org/negara-kepadatan-1), kita akan mendapatkan hasil berikut:
 
 ```
 Terdapat 152.75729615747667 penduduk per 1km2 di Indonesia
@@ -84,7 +84,7 @@ ada sapa = fn (nama) { "Hai, " + nama }
 
 
 
-Pada contoh diatas, kita membuat suatu fungsi bebas baru yang kemudian kita tempatkan pada variabel `sapa`. Karena `sapa` adalah suatu variabel yang berisi fungsi, kita bisa memicunya seperti pada contoh diatas. Menjalankan [kode diatas](https://garatadika.herokuapp.com/sapa-fungsi-bebas) akan menghasilkan keluaran:
+Pada contoh diatas, kita membuat suatu fungsi bebas baru yang kemudian kita tempatkan pada variabel `sapa`. Karena `sapa` adalah suatu variabel yang berisi fungsi, kita bisa memicunya seperti pada contoh diatas. Menjalankan [kode diatas](https://tadika.kodegara.org/sapa-fungsi-bebas) akan menghasilkan keluaran:
 
 ```
 Hai, Gara
@@ -94,7 +94,7 @@ Hai, Gara
 
 Fungsi dan metode sama-sama diadakan menggunakan kata kunci `fn`, namun ada perbedaan diantara keduanya. Pertama, dari segi penempatan, metode adalah fungsi yang diciptakan dalam sebuah kelas, dan menjadi bagian dari instansi kelas tersebut. Sedangkan fungsi selalu diciptakan diluar kelas, atau, saat fungsi diciptakan didalam kelas namun terdapat kata kunci `sta` yang berarti fungsi tersebut adalah fungsi statis.
 
-Kedua, ketika kita menyebut pengenal metode/fungsi statis di dalam kelas, meski tanpa operator picu (`()`), Gara akan mengartikan itu sebagai perintah pemicuan ([demo](https://garatadika.herokuapp.com/kelas-metode-picu-tanpa-operasi-picu)):
+Kedua, ketika kita menyebut pengenal metode/fungsi statis di dalam kelas, meski tanpa operator picu (`()`), Gara akan mengartikan itu sebagai perintah pemicuan ([demo](https://tadika.kodegara.org/kelas-metode-picu-tanpa-operasi-picu)):
 
 ```gara
 kelas Xyz {
@@ -126,6 +126,6 @@ cetak(b)
 cetak(b())
 ```
 
-Pada [contoh kasus](https://garatadika.herokuapp.com/fungsi-penempatan-pemicuan) diatas, kita menciptakan fungsi anonim dan menempatkannya ke dalam variabel `a`. Kemudian, kita menyebut variabel `a` dan menempatkannya ke dalam variabel `b`. Perhatikan bahwa dalam kasus ini, `a` tidak dipicu oleh Gara. Sebaliknya, kini variabel `b` berisi fungsi yang sama dengan variabel `a`.
+Pada [contoh kasus](https://tadika.kodegara.org/fungsi-penempatan-pemicuan) diatas, kita menciptakan fungsi anonim dan menempatkannya ke dalam variabel `a`. Kemudian, kita menyebut variabel `a` dan menempatkannya ke dalam variabel `b`. Perhatikan bahwa dalam kasus ini, `a` tidak dipicu oleh Gara. Sebaliknya, kini variabel `b` berisi fungsi yang sama dengan variabel `a`.
 
 Perbedaan ini ada karena di dalam kelas, pengguna tidak diperkenankan untuk mendapatkan aripicu itu sendiri. Sehingga, mau tidak mau penyebutan nama dari suatu aripicu dianggap oleh Gara sebagai pemicuan. Sedangkan diluar kelas dan objek, penyebutan pengenal suatu fungsi, tanpa operasi picu (`()`), akan mengutus fungsi itu sendiri.
