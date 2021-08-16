@@ -70,7 +70,7 @@ fn tidur() {
 }
 ```
 
-Umumnya semua fungsi memiliki nama, namun ada beberapa fungsi yang tidak memiliki nama. Fungsi-fungsi yang tidak memiliki nama disebut sebagai fungsi anonim. Kita akan memelajari [fungsi anonim](/docs/fungsi/fungsi-anonim) di lain waktu.
+Umumnya semua fungsi memiliki nama, namun ada beberapa fungsi yang tidak memiliki nama. Fungsi-fungsi yang tidak memiliki nama disebut sebagai fungsi anonim.
 
 :::tip Penting
 
