@@ -6,7 +6,8 @@ sidebar_position: 2
 
 | Konteks | Bahasa Inggris | Bahasa Indonesia | Contoh |
 |---|---|---|---|
-| program | ... as first-class citizen | ketuanan ... | ketuanan fungsi |
+| program | ... as first-class citizen | ... sama taraf | fungsi sama taraf |
+| fungsi | anonymous function | fungsi anonim | `fn () {} ()` |
 | variabel | assignment | penempatan | `a = 42` |
 | program | block | blok | `{}` |
 | program | callable | aripicu | metode, fungsi statis |
@@ -17,6 +18,7 @@ sidebar_position: 2
 | variabel | default | pranilai | `ada a = 42` |
 | variabel | destructure | keduk | `a, b = ..[1, 2]` |
 | data | dictionary | peta | `{}` |
+| kata | escape characters | karakter lepas | `\"`, `\n` |
 | program | expression | ekspresi | `42` |
 | logika | `false` | `salah` | `false` |
 | logika | falsey | sesalah | `nil` |

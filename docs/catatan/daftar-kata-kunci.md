@@ -11,6 +11,7 @@ sidebar_position: 3
 | `benar` | Nilai logika yang merepresentasikan pemenuhan syarat |
 | `coba` | Mengawali blok `coba`-`tahan`-`lalu` untuk mencoba suatu kode yang dapat bermasalah |
 | `dari` | Melakukan iterasi, mirip `for` pada bahasa Java, C, C++ |
+| `fana` | Jika disematkan pada variabel statis, berarti nilai variabel statis tersebut dapat diubah. |
 | `fn` | Literal untuk membuat suatu fungsi, atau metode dalam kelas |
 | `fNaN` | Nilai riil yang merepresentasikan bukan angka (_Not a Number_) |
 | `fAnanta` | Nilai riil yang merepresentasikan nilai tak terhingga/_infinity_ |
@@ -35,7 +36,7 @@ sidebar_position: 3
 | `sisip`¹ | Untuk menyisipkan fungsi-fungsi dari suatu modul sebagai metode dari suatu kelas dimana modul tersebut disisipkan |
 | `sta` | Penanda bahwa suatu aripicu atau variabel bersifat statis, mirip `static` pada Java |
 | `tahan` | Bagian `tahan` dari blok `coba`-`tahan`-`lalu` yang akan dieksekusi jika ada masalah yang tertahan |
-| `tetap`¹ | Penanda bahwa suatu kelas bersifat tetap, tidak dapat diperkaya ataupun dijadikan turunan, mirip `final` pada Java |
+| `tetap`¹ | Penanda bahwa suatu kelas bersifat tetap, tidak dapat diperkaya ataupun dijadikan turunan, mirip `final` pada Java. Jika disematkan pada variabel statis, berarti nilai variabel tersebut tidak bisa diubah setelah didefinisikan |
 | `tuntut` | Memastikan bahwa tuntutan bernilai benar atau suatu masalah akan dilempar, mirip `assert` pada Java |
 | `usai`¹ | Mengeksekusi suatu aripicu sebelum kontrol keluar dari suatu aripicu yang sedang dieksekusi |
 | `utus` | Mengembalikan suatu nilai dari suatu aripicu, mirip `return` pada Java, C, C++ |

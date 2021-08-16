@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Membuat kelasmu sendiri
 
-Gara memiliki kelas-kelas sedia ada seperti `Integer`, `Kata`, `Deret` dan lain sebagainya. Tapi, Gara tidak memiliki kelas seperti `Siswa`. Sama halnya, Gara juga tidak memiliki kelas untuk merepresentasikan `Guru`, `Sekolah`, `Buku`, `Musium`, dan lain sebagainya.
+Gara memiliki kelas-kelas bawaan seperti `Integer`, `Kata`, `Deret` dan lain sebagainya. Tapi, Gara tidak memiliki kelas seperti `Siswa`. Sama halnya, Gara juga tidak memiliki kelas untuk merepresentasikan `Guru`, `Sekolah`, `Buku`, `Musium`, dan lain sebagainya.
 
 Kenapa?
 

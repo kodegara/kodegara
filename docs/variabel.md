@@ -87,15 +87,36 @@ Untuk mengakses data tersebut, kita menggunakan nama kelas disusul dengan nama v
 Hari.JUMLAH_JAM
 ```
 
-Variabel statis bersifat _statis_, yakni, nilainya tidak dapat diubah setelah dideklarasikan. Jika kita mencoba memberi nilai baru pada variabel statis, maka akan terjadi masalah:
+Karena sifatnya yang statis, variabel tipe ini diadakan untuk kelas, bukan untuk instansi dari kelas tersebut. Sehingga, masalah akan timbul jika kita mengakses variabel statis dari instansi kelas.
 
 ```gara
-Hari.JUMLAH_JAM = 12
-MasalahPengenal: tidak diperkenankan mengubah nilai variabel statis `JUMLAH_JAM`
+ada h = Hari.baru
+h.JUMLAH_JAM // bermasalah
 ```
 
 :::tip Penting
-Variabel statis bersifat _statis_, yakni, nilainya tidak dapat diubah.
+Variabel statis bersifat _statis_, yakni, variabelnya diadakan untuk kelas, bukan untuk instansi dari kelas tersebut.
+:::
+
+Secara umum, seluruh variabel statis bersifat `tetap`, yakni tidak dapat diubah nilainya setelah didefinisikan. Sehingga, jika kita mengubah nilai `JUMLAH_JAM` diatas, akan terjadi masalah:
+
+```gara
+Hari.JUMLAH_JAM = 123 // bermasalah
+```
+
+Tapi, ada beberapa kasus dimana kita perlu mengubah nilai variabel statis. Agar variabel statis dapat diubah, kita harus mendefinisikannya dengan kata kunci tambahan: `fana`. `fana` membuat variabel statis dapat diubah nilainya.
+
+```gara
+kelas Negara {
+    ada sta fana IBUKOTA = []
+}
+
+Negara.IBUKOTA += ["Jakarta"]
+Negara.IBUKOTA += ["Tokyo"]
+```
+
+:::tip Penting
+`fana` membuat variabel statis dapat diubah nilainya.
 :::
 
 ### Variabel biasa

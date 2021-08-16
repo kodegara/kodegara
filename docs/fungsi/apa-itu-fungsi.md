@@ -2,9 +2,9 @@
 sidebar_position: 1
 ---
 
-# Apa itu Fungsi?
+# Apa itu fungsi?
 
-## Apa itu Fungsi?
+## Apa itu fungsi?
 
 Fungsi adalah langkah-langkah untuk mencapai suatu tujuan. Katakanlah kita akan pergi ke suatu pesta ulang tahun, mungkin kita akan memiliki fungsi berikut:
 
@@ -20,6 +20,14 @@ fn pergiKePesta() {
 ```
 
 Dalam contoh diatas, kita memiliki fungsi `pergiKePesta()` yang berisi cara-cara agar kita, atau suatu objek, bisa pergi ke pesta. Ketika fungsi `pergiKePesta` tersebut dipicu, maka baris-baris kode didalamnya akan dipicu juga, mulai dari `mandi()`, `pakaiBaju()`, hingga `datangKePesta()`.
+
+
+:::tip Penting
+
+Fungsi adalah langkah-langkah untuk mencapai suatu tujuan
+
+:::
+
 
 ## Kenapa kita memiliki fungsi?
 
@@ -117,9 +125,3 @@ ada fileSamaIsi = bacaFile("a.txt") == bacaFile("b.txt")
 ```
 
 Bahkan, saat kita perlu membaca file `c.txt`, kita hanya perlu memanggil fungsi `bacaFile("c.txt")` tanpa perlu mengulang mengetik langkah-langkah cara membaca isi filenya lagi, karena kita telah menyederhanakan langkah-langkah tersebut kedalam fungsi yang sama: `bacaFile`.
-
-:::tip Penting
-
-Fungsi adalah langkah-langkah untuk mencapai suatu tujuan
-
-:::
