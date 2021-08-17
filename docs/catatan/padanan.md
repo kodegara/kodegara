@@ -34,7 +34,7 @@ sidebar_position: 2
 | program | nested | bersarang | `jika benar { jika benar { } }` |
 | logika | `null` | `nil` | `nil` |
 | fungsi | overload | peragaman | `fn a(a) {}; fn a(a, b) {}` |
-| fungsi | override | penimpaan | `fn jadiKata() {}` |
+| fungsi | override | penimpaan | `fn keKata() {}` |
 | fungsi | polymorphism | pusparagam | `fn a(a) {}; fn a(a, b) {}` |
 | fungsi | return | utus | `utus 42` |
 | variabel | shadowing | membayangi | `ada a; fn (a) { a + 1 }(12)` |
@@ -44,7 +44,7 @@ sidebar_position: 2
 | kelas | subclass | kelas turunan | `kelas Integer -> Angka {}` |
 | kelas | superclass | kelas punca | `kelas Integer -> Angka {}` |
 | masalah | throw | lempar | `lempar masalah` |
-| fungsi | toString | jadiKata | `fn jadiKata() {}` |
+| fungsi | toString | keKata | `fn keKata() {}` |
 | logika | `true` | `benar` | `benar` |
 | logika | truthy | sebenar | `1` |
 | variabel | variable | variabel | `ada var` |
