@@ -54,7 +54,31 @@ Gara didesain untuk mudah dipelajari bagi siapapun. Dilengkapi dengan fitur-fitu
 
 Karena sintaksis Gara yang menggunakan bahasa Indonesia, praktis pelajar terutama anak-anak tidak perlu lagi merasa canggung. Mereka seharusnya tidak lagi dipusingkan antara belajar pemrograman atau bahasa Inggris, suatu bahasa yang asing dan sulit dipelajari bagi anak-anak Indonesia pada umumnya. Dengan kata lain, Gara memungkinkan anak-anak untuk dapat belajar pemrograman dan berpikir ala seorang insinyur sejak usia sedini mungkin.
 
-Namun, pengguna dewasa tentu tetap bisa menggunakan Gara untuk menciptakan sistem untuk dunia industri, bisnis ataupun akademis. Gara adalah proyek yang lebih dari bahasa pemrograman untuk anak-anak. Gara adalah bahasa pemrograman yang didesain untuk menjawab tantangan riil, seperti pemrograman web, pemrograman _multi-thread_, dan sebagainya seiring perkembangannya.
+Selain itu, Gara didesain sedemikian rupa untuk tidak membingungkan bagi pelajar. Misalnya, dalam bahasa pemrograman JavaScript, C, Python dan banyak bahasa lain, kode sejenis dibawah ini akan menghasilkan nilai 11:
+
+```javascript
+let count = 0
+
+for (let i = 0; i < 1.0; i += 0.1) {
+    count++
+}
+
+console.log(count)
+```
+
+Alasan kenapa nilainya `11` sudah sangat teknis untuk dipahami bagi seorang pelajar, sehingga bahasa-bahasa tersebut cukup sulit untuk digunakan sebagai medium pembelajaran bagi orang yang benar-benar awam terlebih masih duduk dibangku sekolah. Di Gara, kode sejenis diatas tentu saja mencetak nilai 10 seperti dalam demonstrasi kode dibawah ini.
+
+```gara
+ada jumlah = 0
+
+dari (ada i = 0; i < 1.0; i += 0.1) {
+    jumlah++
+}
+
+cetak(jumlah)
+```
+
+Itu adalah sedikit contoh bagaimana Gara didesain agar pemrograman menjadi lebih mudah difahami bagi semua, terutama kalangan pelajar. Namun, Gara adalah proyek yang lebih dari sekedar bahasa pemrograman untuk anak-anak. Gara adalah bahasa pemrograman yang didesain untuk menjawab tantangan riil. Para professional tentu tetap bisa menggunakan Gara untuk menciptakan sistem untuk dunia industri, bisnis ataupun akademis seperti untuk pemrograman web, pemrograman aplikasi _multi-thread_, dan sebagainya.
 
 ## Kenapa Gara diciptakan, _kan_ sudah ada X, Y, Z?
 

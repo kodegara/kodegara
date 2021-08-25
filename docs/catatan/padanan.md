@@ -31,6 +31,7 @@ sidebar_position: 2
 | kelas | method | metode | `fn abc() {}` |
 | kelas | monkey patching | pengayaan | `kelas Integer {}` |
 | kelas | namespace | alam nama | `A::B` |
+| variabel | modifier | sifat | `sta`, `fana`, `tetap` |
 | program | nested | bersarang | `jika benar { jika benar { } }` |
 | logika | `null` | `nil` | `nil` |
 | fungsi | overload | peragaman | `fn a(a) {}; fn a(a, b) {}` |
