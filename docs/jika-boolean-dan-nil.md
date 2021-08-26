@@ -170,7 +170,7 @@ Sebagai referensi, tabel nilainya sebagai berikut.
 | Boolean 1 | !Boolean 1 |
 |---|---|
 | benar | salah |
-| benar | benar |
+| salah | benar |
 
 Sangat sederhana bukan? Contoh penerapan operator `!` adalah sebagai berikut:
 
