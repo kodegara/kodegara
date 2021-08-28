@@ -86,6 +86,25 @@ Karena sifatnya yang tidak dapat diubah setelah didefinisikan, kita akan mendapa
 angka + [6]
 ```
 
+### Rangkap::Pabrik
+
+Tipe data `Rangkap` juga memiliki suatu mekanisme yang memungkinkan kita memastikan bahwa rangkap memiliki karakteristik khusus, misalnya terdiri dari 2-rangkap dengan data pertama berupa nama, dan data kedua berupa umur. Untuk membuat pabrik tersebut, kita menggunakan kode seperti berikut:
+
+```gara
+ada pabSiswa = Rangkap::Pabrik.baru(["nama", "umur"])
+    .kelasUntuk("nama", Kata)
+    .kelasUntuk("umur", Integer)
+
+pabSiswa("Adam Notodikromo", 7)
+```
+
+Karena dengan menggunakan `Rangkap::Pabrik` kita memberi nama pada data-data dalam rangkap tersebut, kita juga bisa memanggil rangkap menggunakan kuncinya yang berupa `Kata`:
+
+```gara
+cetak(siswa["nama"]) // sama dengan siswa[0]
+cetak(siswa["umur"]) // sama dengan siswa[1]
+```
+
 ## Peta
 
 Peta, yang dibuat dengan tanda `{}`, adalah tipe data yang memetakan nilai satu dengan nilai yang lainnya. Misalnya, kita bisa memetakan data Kata `"nama"` ke data Kata `"Gara"` misalnya, dalam `Peta` berikut:
