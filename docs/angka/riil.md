@@ -101,6 +101,7 @@ Selain operator pembanding `==`, `Riil` juga dapat dibandingkan menggunakan oper
 | < | Kurang dari |
 | >= | Lebih dari, atau sama dengan |
 | <= | Kurang dari, atau sama dengan |
+| =~ | Mendekati (hanya berbeda sebanyak 0.01) |
 
 Operator yang bersifat persis akan melakukan pembandingan dimana dua angka tidak dapat berbeda sedikitpun
 
