@@ -8,7 +8,7 @@ author_image_url: https://avatars.githubusercontent.com/u/166730?v=4
 tags: [gara, pemrograman]
 ---
 
-Saat kita menggunakan peramban seperti Chrome atau Firefox, kemudian mengetik alamat URL, katakanlah: `https://kodegara.org`, peramban kita akan mendownload file `HTML` dari suatu server untuk kemudian ditampilkan. Tentunya, seluruh instruksi-instruksi tersebut ditulis dalam suatu bahasa pemrograman.
+Saat kita menggunakan peramban seperti Chrome atau Firefox, kemudian mengetik alamat URL, katakanlah: `https://kodegara.org`, peramban kita akan mendownload file HTML dari suatu server untuk kemudian ditampilkan. Tentunya, seluruh instruksi-instruksi tersebut ditulis dalam suatu bahasa pemrograman.
 
 Ada banyak bahasa pemrograman di dunia ini: C, C++, Elixir, Python, Java, Ruby dan tidak terkecuali Gara. Pun demikian, ada banyak jenis bahasa pemrograman didunia ini.
 
