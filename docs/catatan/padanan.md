@@ -14,6 +14,7 @@ sidebar_position: 2
 | kelas | class | kelas | `kelas A {}` |
 | fungsi | closure | fungsi lapis | `f(fn () {})` |
 | variabel | compound assignment | penempatan berlapis | `a += 42` |
+| program | compound operator | operator berlapis | `+=`
 | looping | continue | putus | `putus` |
 | variabel | default | pranilai | `ada a = 42` |
 | variabel | destructure | keduk | `a, b = ..[1, 2]` |
@@ -48,4 +49,6 @@ sidebar_position: 2
 | fungsi | toString | keKata | `fn keKata() {}` |
 | logika | `true` | `benar` | `benar` |
 | logika | truthy | sebenar | `1` |
+| program | unary operator | operator ikaritas | `!`
+| program | binary operator | operator dwiritas | `+`
 | variabel | variable | variabel | `ada var` |
