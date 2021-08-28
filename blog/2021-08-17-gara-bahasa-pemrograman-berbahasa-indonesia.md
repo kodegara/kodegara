@@ -10,6 +10,8 @@ tags: [gara, rilis]
 
 Memprogram adalah latihan mengasah cara berfikir. Diusianya yang masih muda, belajar memprogram sejak dini akan sangat menguntungkan bagi anak-anak. Mereka akan diajak berfikir kritis dan logis, serta eksploratif.
 
+<!--truncate-->
+
 Namun, ada beberapa kendala yang umum ditemui:
 
 - Belajar memprogram itu susah & rumit
