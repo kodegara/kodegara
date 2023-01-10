@@ -1,7 +1,7 @@
 ---
 slug: beda-bahasa-oop-procedural-fungsional
 title: "Beda Bahasa Pemrograman Procedural, OOP dan Fungsional"
-author: Adam Notodikromo
+author: Adam Noto Hakarsa
 author_title: Pencipta Gara
 author_url: https://github.com/adamnoto
 author_image_url: https://avatars.githubusercontent.com/u/166730?v=4
@@ -128,4 +128,6 @@ Tidak ada paradigma yang sempurna. Terkadang, bahkan kita "dipaksa" oleh keadaan
 
 Namun, dalam banyak kasus tentu kita bisa memilih bahasa paradigma apa yang ingin kita gunakan. Terkadang, pilihan tersebut tergantung selera dan preferensi masing-masing orang, tim, perusahaan, atau tuntutan-tuntutan lain. Umumnya, bahasa prosedural atau OOP sangat mudah dipahami sehingga untuk berganti dari bahasa prosedural ke OOP, ataupun sebaliknya, tidak butuh waktu yang sangat signifikan. Namun, bahasa fungsional sangat jauh berbeda dari segi filosofi sehingga hampir setiap programmer handal sekalipun akan membutuhkan waktu yang lama untuk memelajari/pindah ke bahasa tersebut.
 
-Apakah itu berarti bahasa fungsional jelek? Tidak juga. Bahasa fungsional banyak dipakai dikalangan riset. Karena bahasa ini memiliki konsep [kekekalan data](https://kodegara.org/docs/koleksi#hukum-kekekalan-koleksi) yang sangat kuat, singkatnya, bahasa ini juga sering digunakan dalam banyak kasus _multi-threading_ karena dalam kasus tersebut bahasa OOP susah untuk dapat diandalkan dengan baik dan benar.
+Apakah itu berarti bahasa fungsional jelek? Tidak juga. Bahasa fungsional banyak dipakai dikalangan riset. Karena bahasa ini memiliki konsep kekekalan data yang sangat kuat, singkatnya, bahasa ini juga sering digunakan dalam banyak kasus _multi-threading_ karena dalam kasus tersebut bahasa OOP susah untuk dapat diandalkan dengan baik dan benar.
+
+Gara sendiri adalah bahasa yang [terinspirasi dari tiga paradigma](https://kodegara.org/docs/pengantar#karakteristik-gara) tersebut. Misalnya, di Gara, [koleksi (seperti deret/array) bersifat kekal/immutable](https://kodegara.org/docs/koleksi#hukum-kekekalan-koleksi). Dengan diakomodirnya tiga paradigma tersebut, pengguna akan mampu mengeksperikan dirinya dengan lebih bebas saat memprogram. Selain itu, karena tujuan utama Gara diciptakan adalah untuk membantu belajar pemrograman, dengan diakomodirnya ketiga paradigma tersebut pelajar akan mampu mencicipi tiga paradigma yang berbeda meski fokus belajar satu bahasa pemrograman saja.
