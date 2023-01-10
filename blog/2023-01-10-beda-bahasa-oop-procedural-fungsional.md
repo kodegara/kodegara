@@ -83,20 +83,21 @@ Sisi positif:
 - Sederhana
 
 Sisi negatif:
-- Sukar dibaca/diubah jika program menjadi lebih besar
+- Sukar dibaca/diubah jika program menjadi lebih rumit
 
 ## Pemrograman Berbasis Objek (Object-Oriented Programming)
 
-Bahasa pemrograman berbasis objek, atau juga disebut Object-Oriented Programming (singkatannya: OOP), memberi struktur pada bahasa yang minim struktur seperti halnya bahasa prosedural. Bahasa berparadigma ini memiliki konsep yang disebut _objek_. Konsep tersebut terinspirasi dari dunia manusia yang nyata dimana kita melihat sekeliling kita sebagai objek. Ada objek mobil, dimana objek tersebut dapat diparkirkan di dalam objek rumah, ataupun objek mall.
+Bahasa pemrograman berbasis objek, atau juga disebut Object-Oriented Programming (singkatannya: OOP), memberi struktur pada bahasa yang minim struktur seperti halnya bahasa prosedural. Basis disini berarti "tersusun dari apa" dalam artian, bahasa ini memandang bahwa program harus tersusun dari objek-objek. Objek-objek tersebut sejatinya terinspirasi dari cara pandang manusia yang melihat dunia di sekelilingnya sebagai objek. Misal, kita memiliki objek-objek mobil, yang mana objek-objek tersebut dapat diparkirkan di dalam suatu objek rumah, atau objek mall, atau objek sekolah dan lain sebagainya. Ada objek hewan, objek tumbuhan, bahkan planet ini adalah suatu objek!
 
-Jika dibandingkan dengan contoh memasak mie pada bahasa prosedural, kita akan menjumpai objek-objek yang memiliki fungsi. Dalam arti lain, kode menjadi terstruktur karena fungsi-fungsi menjadi terikat ke suatu objek. Misal, objek `Kompor` akan memiliki fungsi `nyala` untuk menyalakan kompor. Selain `Kompor` kita akan memiliki objek-objek berikut:
+Karena adanya objek-objek tersebut, dapat dikatakan bahwa kode dalam bahasa ini menjadi jauh lebih terstruktur. Pada contoh memasak mie sebelumnya, dalam bahasa OOP kita akan menjumpai objek-objek seperti:
 
-1. Mie bungkus
-2. Air
-3. Panci
-4. Piring
+1. Kompor
+2. Mie bungkus
+3. Air
+4. Panci
+5. Piring
 
-Karena fungsi-fungsi tersebut terstruktur kedalam objek-objek tertentu, kita tidak perlu "tahu" langkah-langkah yang diperlukan dalam interaksi antar tiap-tiap objek yang ada. Jadi, meski mie merk A butuh waktu 5 menit sedangkan mie merk B butuh waktu 3 menit, kita tidak perlu tahu detail perbedaan waktu itu. Dengan cara inilah, bahasa pemrograman berbasis objek memiliki suatu struktur dibanding bahasa prosedural. Kode dalam bahasa ini bisa saja menjadi seperti ini:
+Jika ~fungsi~ prosedur dalam bahasa prosedural tidak terikat dalam struktur manapun, fungsi-fungsi dalam bahasa ini akan terikat pada suatu objek. Fungsi yang terikat pada suatu objek juga dinamakan sebagai _metode_. Oleh karena keterikatan antara fungsi dan objek lah bahasa ini terlihat menjadi lebih terstruktur. Kode dalam bahasa ini bisa saja menjadi seperti ini:
 
 ```gr
 kelas Orang {
@@ -134,31 +135,29 @@ Sisi negatif:
 
 ## Fungsional (Functional)
 
-Dalam bahasa OOP, objek adalah segalanya. Dalam bahasa fungsional, _fungsi_ adalah segalanya. Dalam bahasa ini, suatu sistem dibangun dari fungsi-fungsi. Fungsi-fungsi tersebut, ketika dipanggil, akan selalu menghasilkan keluaran yang sama jika diberi masukan yang sama. Hal ini yang membedakan bahasa fungsional dengan prosedural. Karena, meski bahasa fungsional dari luar mungkin mirip dengan bahasa prosedural, bedanya adalah bahasa prosedural tidak selalu menghasilkan keluaran yang sama meski diberi masukan yang sama!
+Dalam bahasa OOP, objek adalah segalanya. Dalam bahasa fungsional, _fungsi_ adalah segalanya. Dalam bahasa ini, suatu sistem dibangun dari fungsi-fungsi. Fungsi-fungsi tersebut, ketika dipanggil, akan selalu menghasilkan keluaran yang sama jika diberi masukan yang sama. Hal ini yang membedakan bahasa fungsional dengan prosedural. Karena, meski bahasa fungsional dari luar sangat mirip dengan bahasa prosedural, bahasa prosedural tidak selalu menghasilkan keluaran yang sama meski diberi masukan yang sama! (ingat, kita sering menulis ~fungsi~ saat menyebut prosedur saat membahas bahasa prosedural)
 
-Kok bisa?
-
-Contohnya, katakanlah kita ingin mengetahui waktu saat ini, kita akan memiliki prosedur `waktu()`. Saat prosedur `waktu` dipanggil, maka langkah-langkah ini mungkin akan dilakukan:
+Contohnya, katakanlah kita ingin mengetahui waktu saat ini, kita akan memiliki ~fungsi~ prosedur `waktu()`. Saat prosedur `waktu` dipanggil, maka langkah-langkah ini mungkin akan dilakukan:
 
 1. Kirim instruksi ke sistem operasi untuk membaca waktu
-2. Sistem operasi memberikan waktu _terbaru_ saat _ini_
+2. Sistem operasi memberikan waktu _terbaru_ saat _saat ini_
 
-Tapi, konsep _ini_ berbeda dari waktu ke waktu. Di detik pertama kita memanggil `waktu`, kita akan mendapatkan nilai `1`. Sedetik kemudian, saat memanggil `waktu`, kita akan mendapatkan nilai `2`, begitu seterusnya tergantuk kapan `waktu` dipanggil. Nah kan, meski masukannya sama (yakni, cuma `waktu()`), keluarannya berbeda.
+Tapi, konsep _saat ini_ berbeda dari waktu ke waktu. Di detik pertama kita memanggil `waktu`, kita akan mendapatkan nilai `1`. Sedetik kemudian, saat memanggil `waktu`, kita akan mendapatkan nilai `2`, begitu seterusnya tergantung kapan `waktu` dipanggil. Nah kan, meski masukannya sama (yakni, cuma `waktu()`), keluarannya bisa berbeda.
 
-Bahasa fungsional tidak menerima konsep itu. Dalam bahasa ini, data bersifat kekal (_immutable_). Karena begitu "kaku" nya bahasa fungsional, memelajari bahasa ini biasanya butuh waktu yang sedikit lebih lama. Namun, sifat-sifat "kaku" dalam bahasa fungsional sebenarnya memberikan banyak manfaat bagi sang pemrogram. Misalnya, karena kita bisa pasti bahwa masukan yang sama pasti menghasilkan keluaran yang sama, kita bisa memecahkan suatu tugas besar ke tugas-tugas kecil, dan mengerjakannya bersamaan dalam artian memanfaatkan semua prosesor yang ada.
+Bahasa fungsional jauh lebih kaku. Perbedaan-perbedaan seperti itu tidak dapat diterima. Karena begitu "kaku" nya bahasa fungsional, memelajari bahasa ini biasanya butuh waktu yang lebih lama. Namun, sifat-sifat "kaku" dalam bahasa fungsional sebenarnya ada alasannya, dan dapat dibilang mampu memberikan untuk kasus-kasus tertentu. Misalnya, karena kita bisa pasti bahwa masukan yang sama pasti menghasilkan keluaran yang sama, kita bisa memecahkan suatu tugas besar ke tugas-tugas kecil tanpa perlu takut bahwa fungsi tersebut kemungkinan akan bertingkah lain tergantung kapan fungsi tersebut dipanggil. Karenanya, bahasa ini sangat cocok untuk mengerjakannya tugas-tugas yang dapat dipotong ke bagian-bagian kecil yang dapat diproses secara bersamaan sehingga waktu yang diperlukan untuk menyelesaikan tugas tersebut menjadi lebih singkat.
 
 Sisi positif:
-- Mampu memanfaatkan seluruh prosesor yang ada dengan lebih mudah, jika tugasnya dapat dipisah ke bagian kecil-kecil
+- Mampu memanfaatkan seluruh prosesor yang ada dengan lebih mudah jika tugasnya dapat dipisah ke bagian kecil-kecil
 
 Sisi negatif:
 - Kaku
 
 ## Pilih yang mana?
 
-Tidak ada paradigma yang sempurna. Terkadang, bahkan kita "dipaksa" oleh keadaan untuk menggunakan suatu paradigma tertentu. Misalnya, saat memprogram hardware pada level paling rendah, kita sangat mungkin harus menggunakan bahasa seperti C (prosedural). Di saat itu, kita tidak dapat memilih untuk menggunakan bahasa Java (oop) meski kita ingin menggunakan bahasa yang berbasis objek.
+Tidak ada paradigma yang sempurna. Terkadang, bahkan kita "dipaksa" oleh keadaan untuk menggunakan suatu paradigma tertentu. Misalnya, saat memprogram hardware pada level paling rendah, kita sangat mungkin harus menggunakan bahasa seperti C (prosedural)--tidak bisa yang lainnya.
 
-Namun, dalam banyak kasus tentu kita bisa memilih bahasa paradigma apa yang ingin kita gunakan. Terkadang, pilihan tersebut tergantung selera dan preferensi masing-masing orang, tim, perusahaan, atau tuntutan-tuntutan lain. Umumnya, bahasa prosedural atau OOP sangat mudah dipahami sehingga untuk berganti dari bahasa prosedural ke OOP, ataupun sebaliknya, tidak butuh waktu yang sangat signifikan. Namun, bahasa fungsional sangat jauh berbeda dari segi filosofi sehingga hampir setiap programmer handal sekalipun akan membutuhkan waktu yang lama untuk memelajari/pindah ke bahasa tersebut.
+Namun, dalam banyak kasus lain kita bisa memilih paradigma yang kita suka. Umumnya, bahasa prosedural atau OOP sangat mudah dipahami sehingga untuk berganti dari bahasa prosedural ke OOP, ataupun sebaliknya, tidak butuh waktu yang sangat signifikan. Sedangkan bahasa fungsional sangat jauh berbeda dari segi filosofi sehingga programmer handal sekalipun dapat membutuhkan waktu yang lama untuk memelajari/pindah ke bahasa tersebut.
 
-Apakah itu berarti bahasa fungsional jelek? Tidak juga. Bahasa fungsional banyak dipakai dikalangan riset. Karena bahasa ini memiliki konsep kekekalan data yang sangat kuat, singkatnya, bahasa ini juga sering digunakan dalam banyak kasus _multi-threading_ karena dalam kasus tersebut bahasa OOP susah untuk dapat diandalkan dengan baik dan benar.
+Apakah itu berarti bahasa fungsional jelek? Tidak juga. Bahasa fungsional banyak dipakai untuk riset. Hal ini karena bahasa fungsional memiliki konsep kekekalan data (imutabilitas), yang karenanya, singkatnya, bahasa ini sering digunakan dalam banyak kasus dimana _multi-threading_ diperlukan.
 
-Gara sendiri adalah bahasa yang [terinspirasi dari tiga paradigma](https://kodegara.org/docs/pengantar#karakteristik-gara) tersebut. Misalnya, di Gara, [koleksi (seperti deret/array) bersifat kekal/immutable](https://kodegara.org/docs/koleksi#hukum-kekekalan-koleksi). Dengan diakomodirnya tiga paradigma tersebut, pengguna akan mampu mengeksperikan dirinya dengan lebih bebas saat memprogram. Selain itu, karena tujuan utama Gara diciptakan adalah untuk membantu belajar pemrograman, dengan diakomodirnya ketiga paradigma tersebut pelajar akan mampu mencicipi tiga paradigma yang berbeda meski fokus belajar satu bahasa pemrograman saja.
+Gara sendiri adalah bahasa yang [terinspirasi dari tiga paradigma](https://kodegara.org/docs/pengantar#karakteristik-gara) tersebut. Misalnya, di Gara, [koleksi (seperti deret/array) bersifat kekal/_immutable_](https://kodegara.org/docs/koleksi#hukum-kekekalan-koleksi). Dengan diakomodirnya tiga paradigma tersebut, pengguna akan mampu mengeksperikan dirinya dengan lebih bebas saat memprogram menggunakan Gara. Selain itu, karena tujuan utama Gara diciptakan adalah untuk membantu belajar pemrograman, dengan Gara pelajar dapat mencicipi tiga paradigma yang berbeda meski fokus belajar menggunakan bahasa pemrograman yang sama.
