@@ -8,32 +8,35 @@ author_image_url: https://avatars.githubusercontent.com/u/166730?v=4
 tags: [paradigma, pemrograman]
 ---
 
-Terdapat tiga jenis utama bahasa pemrograman: procedural, fungsional dan object-oriented (pemrograman berbasis objek). 
-Meski perbedaan antara ketiga paradigma tersebut sangat mendasar, kita bisa menggunakan model paradigma apapun untuk 
-belajar pemrograman.
+Terdapat tiga jenis utama bahasa pemrograman: prosedural (procedural), fungsional (functional) dan berbasis-objek (object-oriented). 
+Kita bisa menggunakan model paradigma apapun untuk belajar pemrograman, meski perbedaan antara ketiga paradigma tersebut sangat mendasar.
+Sehingga mungkin perlu diketahui seperti apa perbedaan antara ketiganya.
 
 <!--truncate-->
 
-## Procedural (Prosedural)
+## Prosedural (Procedural)
 
-Pernah dengar bahasa-bahasa seperti C? Atau bahkan Pascal? Mungkin C masih iya, tapi Pascal mungkin sudah jarang yang tahu dewasa ini. Bahasa-bahasa tersebut adalah contoh bahasa prosedural. Bahasa-bahasa jaman dulu umumnya semuanya berparadigman prosedural.
+Pernah dengar bahasa-bahasa seperti C? Atau bahkan Pascal? Mungkin C masih iya, tapi Pascal mungkin sudah jarang yang tahu dewasa ini. Bahasa-bahasa tersebut adalah contoh bahasa prosedural. Bahasa-bahasa jaman dulu umumnya semuanya berparadigma/beraliran/berjenis prosedural.
 
-Bayangkan jika kamu ingin memasak mie goreng, kamu mungkin perlu langkah-langkah ini:
+Bayangkan saja, jika kamu lapar dan ingin makan mie goreng, kamu mungkin perlu langkah-langkah ini:
 
-1. Memasukkan air ke dalam panci
-2. Menyalakan kompor
-3. Menaikkan panci dalam kompor
-4. Menunggu hingga air agar mendidih
-5. Memasukkan mie dalam panci
+1. Masukkan air ke dalam panci
+2. Nyalakan kompor
+3. Naikkan panci ke atas kompor
+4. Tunggu air mendidih
+5. Memasukkan mie ke dalam panci
 6. Siapkan piring
-7. Menunggu 5 menit
+7. Tunggu 5 menit
 8. Tiriskan mie dari panci
 9. Tuang mie ke dalam piring
-10. Beri bumbu
+10. Taburkan bumbu ke dalam piring
+11. Aduk bumbu hingga rata
 
-Nah, langkah-langkah tersebut juga disebut _prosedur_. Jadi, prosedur = langkah-langkah. Dengan bahasa ini, tidak ada bedanya antara _mi_, koki yang memasak, panci dan sebagainya. Semuanya ada kemungkinan untuk campur-baur dan tidak ada strukturnya. Oleh karenanya, bahasa ini juga sangat mudah dipelajari bagi pemula. Namun, ketika suatu program menjadi lebih rumit, kode dalam bahasa prosedural bisa saja lebih susah dibaca ataupun diubah. Bayangkan saja, jika mie yang harus dimasak ada 10, masing-masing berbeda merk-nya, memiliki bumbu yang berbeda, membutuhkan waktu memasak yang berbeda dan lain sebagainya. Maka langkah prosedur diatas bisa saja jadi jauh lebih rumit untuk dibaca/diubah, kan?
+Nah, langkah-langkah tersebut juga disebut _prosedur_. Jadi, prosedur = langkah-langkah. Yap! Prosedur bisa diartikan langkah-langkah.
 
-Kode dalam bahasa ini tidak akan jauh berbeda dari langkah-langkahnya. Sangat satu-per-satu:
+Dalam paradigma prosedural, konsep yang berbeda sangat mungkin untuk bercampur-baur. Tidak ada struktur yang jelas. Oleh karenanya, bahasa ini lebih mudah dipelajari bagi pemula.
+
+Kode dalam bahasa ini tidak jauh berbeda dari langkah-langkahnya:
 
 ```gr
 ada mie, kompor, panci, mie, piring
@@ -50,7 +53,30 @@ siapkan_piring()
 tunggu_5_menit()
 tiriskan(panci)
 tuang(panci, piring)
-tabur_bumbu(piring)
+tuang(bumbu, piring)
+aduk(piring)
+```
+
+Bandingkan kode diatas dengan langkah-langkah prosedurnya, sangat mirip bukan? Tidak ada sekat sama sekali, fungsi (atau lebih tepatnya prosedur) `tiriskan` untuk panci berada di suatu struktur yang sama dengan ~fungsi~ prosedur `nyalakan_kompor`. Tidak ada strukturnya sama sekali. Semua fungsi/prosedur dapat berada di file yang sama.
+
+Ketika suatu program menjadi lebih rumit, kode dalam bahasa prosedural kemungkinan jadi lebih susah dibaca ataupun diubah. Bayangkan saja, jika mie yang harus dimasak ada 10 dan masing-masing berbeda merk-nya, memiliki bumbu yang berbeda, membutuhkan waktu memasak yang berbeda dan lain sebagainya. Maka langkah prosedur diatas bisa saja jadi jauh lebih rumit untuk dibaca/diubah, kan?
+
+Misalnya, kodenya akan menjadi seperti ini:
+
+```gr
+masukkan(mie1, panci)
+siapkan_piring()
+tiriskan(panci)
+tuang(panci, piring1)
+tuang(bumbu, piring1)
+
+masukkan(mie2, panci)
+siapkan_piring()
+tiriskan(panci)
+tuang(panci, piring2)
+tuang(bumbu, piring2)
+
+...
 ```
 
 Sisi positif:
@@ -59,21 +85,18 @@ Sisi positif:
 Sisi negatif:
 - Sukar dibaca/diubah jika program menjadi lebih besar
 
-## Pemrograman Berbasis Objek (OOP)
+## Pemrograman Berbasis Objek (Object-Oriented Programming)
 
-Bahasa pemrograman berbasis objek mencoba memberi struktur pada bahasa yang sebelumnya prosedural. Bahasa berparadigma ini memiliki konsep yang disebut _objek_. Konsep tersebut terinspirasi dari dunia nyata dimana kita melihat sekeliling kita sebagai objek.
+Bahasa pemrograman berbasis objek, atau juga disebut Object-Oriented Programming (singkatannya: OOP), memberi struktur pada bahasa yang minim struktur seperti halnya bahasa prosedural. Bahasa berparadigma ini memiliki konsep yang disebut _objek_. Konsep tersebut terinspirasi dari dunia manusia yang nyata dimana kita melihat sekeliling kita sebagai objek. Ada objek mobil, dimana objek tersebut dapat diparkirkan di dalam objek rumah, ataupun objek mall.
 
-Bayangkan prosedur memasak mie sebelumnya. Dalam bahasa pemrograman berbasis objek, kita akan memiliki objek-objek berikut:
+Jika dibandingkan dengan contoh memasak mie pada bahasa prosedural, kita akan menjumpai objek-objek yang memiliki fungsi. Dalam arti lain, kode menjadi terstruktur karena fungsi-fungsi menjadi terikat ke suatu objek. Misal, objek `Kompor` akan memiliki fungsi `nyala` untuk menyalakan kompor. Selain `Kompor` kita akan memiliki objek-objek berikut:
 
 1. Mie bungkus
 2. Air
 3. Panci
-4. Kompor
-5. Piring
+4. Piring
 
-Dalam bahasa ini, kita tidak perlu "tahu" langkah-langkah yang diperlukan dalam interaksi tiap-tiap objek yang ada. Langkah-langkah tersebut dianggap pengetahuan internal dari suatu objek. Katakanlah, kompor nya sangat canggih sehingga dapat mendeteksi merk mie dan mendapatkan informasi misal seberapa lama mie tersebut harus dimasak agar matang. Maka, meski mie merk A butuh waktu 5 menit sedangkan mie merk B butuh waktu 2.5 menit, kita tidak perlu tahu detail perbedaan waktu itu. Dengan cara inilah, bahasa pemrograman berbasis objek memiliki suatu struktur dibanding bahasa prosedural.
-
-Kode dalam bahasa ini bisa saja menjadi seperti ini:
+Karena fungsi-fungsi tersebut terstruktur kedalam objek-objek tertentu, kita tidak perlu "tahu" langkah-langkah yang diperlukan dalam interaksi antar tiap-tiap objek yang ada. Jadi, meski mie merk A butuh waktu 5 menit sedangkan mie merk B butuh waktu 3 menit, kita tidak perlu tahu detail perbedaan waktu itu. Dengan cara inilah, bahasa pemrograman berbasis objek memiliki suatu struktur dibanding bahasa prosedural. Kode dalam bahasa ini bisa saja menjadi seperti ini:
 
 ```gr
 kelas Orang {
@@ -88,20 +111,28 @@ kelas Orang {
 }
 ```
 
-Namun, sayangnya, tidak semua hal dapat dengan mudah dibayangkan sebagai _objek_ layaknya objek di dunia manusia. Kita harus ingat bahwa dikomputer terdapat berbagai hal yang tidak ada di dunia nyata. Hal-hal tersebut membuat bahasa pemrograman berbasis objek menjadi nampak aneh.
+Untuk memasak mie yang berbada-beda juga akan menjadi jauh lebih sederhana:
 
-Untuk program-program sederhana, bahasa pemrograman berbasis objek juga terkesan bertele-tele.
+```gr
+ada anton = Orang.baru()
+ada budi = Orang.baru()
+ada reva = Orang.baru()
+
+anton.makan(MiKwetiau.baru())
+budi.makan(MiSpagheti.baru())
+reva.makan(MiPangsit.baru())
+```
+
+Hanya saja, tidak semua hal dapat dengan mudah dibayangkan sebagai objek layaknya objek di dunia nyata manusia. Apalagi, dalam dunia komputer terdapat banyak hal yang tidak ada padanannya di dunia nyata. Hal-hal tersebut membuat bahasa pemrograman berbasis objek menjadi nampak aneh. Juga, untuk program-program sederhana, bahasa pemrograman berbasis objek bisa terkesan terlalu bertele-tele dibandingkan bahasa prosedural.
 
 Sisi positif:
 - Terstruktur
 
 Sisi negatif:
 - Ada kemungkinan bertele-tele
-- Tidak semua konsep dapat dengan mudah dijadikan objek layaknya di dunia manusia
+- Tidak semua konsep dapat dengan mudah dijadikan objek selayaknya di dunia manusia
 
-Oh ya, bahasa ini juga biasa disebut sebagai bahasa berbasis objek (_object-oriented programming_ (OOP)).
-
-## Fungsional
+## Fungsional (Functional)
 
 Dalam bahasa OOP, objek adalah segalanya. Dalam bahasa fungsional, _fungsi_ adalah segalanya. Dalam bahasa ini, suatu sistem dibangun dari fungsi-fungsi. Fungsi-fungsi tersebut, ketika dipanggil, akan selalu menghasilkan keluaran yang sama jika diberi masukan yang sama. Hal ini yang membedakan bahasa fungsional dengan prosedural. Karena, meski bahasa fungsional dari luar mungkin mirip dengan bahasa prosedural, bedanya adalah bahasa prosedural tidak selalu menghasilkan keluaran yang sama meski diberi masukan yang sama!
 
