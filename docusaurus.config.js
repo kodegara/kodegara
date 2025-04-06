@@ -25,7 +25,7 @@ module.exports = {
           position: 'left',
           label: 'Tutorial',
         },
-        {to: 'pathname:///ide.html', label: 'Kelas (IDE)', position: 'left'},
+        {to: 'pathname:///ide.html', label: 'IDE', position: 'left'},
         {to: 'blog', label: 'Blog', position: 'left'},
       ],
     },
