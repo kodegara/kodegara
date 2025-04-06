@@ -6,9 +6,14 @@
   <title>Gara IDE</title>
   <!-- Bootstrap 4 CSS from CDN -->
   <link rel="stylesheet" href="./bootstrap.min.css">
+  <link rel="stylesheet" href="./progress-indicator.css">
   <style>
     .code-editor {
       height: 600px;
+    }
+
+    .hidden {
+      display: none !important;
     }
 
     .idecont {
@@ -88,14 +93,25 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Gara IDE</a>
-    <div class="ml-auto">
-      <a class="nav-link" href="/">Situs Utama</a>
+    <a class="" id="excode" href="#">Jalankan Kode</a>
+
+    <div class="ml-auto d-flex">
+      <div class="d-flex align-items-center">
+        <div id="progress-indicator" class="hidden">
+          <div class="linear-progress-material small">
+            <div class="bar bar1"/>
+            <div class="bar bar2"/>
+          </div>
+          <p>Mendownload Gara...</p>
+        </div>
+      </div>
     </div>
   </nav>
 
   <!-- Main Content -->
   <div class="container-fluid text-center mt-5">
     <div class="code-editor" data-controller="code"></div>
+    <p class="text-right" style="margin-top: 10px; color: gray; font-size: 11px;">Tekan Ctrl+Enter (Cmd+Enter) untuk menjalankan kode</p>
   </div>
 
   <!-- Bootstrap 4 JS and dependencies from CDN -->
@@ -298,7 +314,7 @@
           progCont.classList.remove("hidden")
 
           const go = new Go();
-          WebAssembly.instantiateStreaming(fetch("/gara.wasm"), go.importObject).then(
+          WebAssembly.instantiateStreaming(fetch("./gara.wasm"), go.importObject).then(
               async (result) => {
                   const inst = result.instance
                   this.canRun = true
