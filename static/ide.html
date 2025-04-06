@@ -6,6 +6,82 @@
   <title>Gara IDE</title>
   <!-- Bootstrap 4 CSS from CDN -->
   <link rel="stylesheet" href="./bootstrap.min.css">
+  <style>
+    .code-editor {
+      height: 600px;
+    }
+
+    .idecont {
+      margin-top: 20px;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 100%;
+      height: 100%;
+      display: flex;
+    }
+    .idecont .col {
+      display: flex;
+      flex-direction: column;
+      flex-basis: 100%;
+      flex: 1;
+    }
+    .idecont .col.editor {
+      flex-grow: 2;
+    }
+    .idecont .col.editor .editor-text {
+      position: relative;
+      height: 100%;
+      width: 100%;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 15px;
+    }
+    .idecont .col.editor .editor-text:focus {
+      outline: none;
+    }
+    .idecont .col.sep {
+      flex-grow: 0;
+      background: #f5f5f5;
+      margin: 0 10px;
+      padding: 0 5px;
+      justify-content: center;
+    }
+    .idecont .col.sep:after {
+      content: '»';
+    }
+    .idecont .col.sep.closed {
+      margin-right: 0;
+    }
+    .idecont .col.sep.closed:after {
+      content: '«' !important;
+    }
+    .idecont .col.sep:hover {
+      cursor: pointer;
+      background: #dedede;
+    }
+    .idecont .col.eval {
+      flex-grow: 1;
+      background: white;
+      margin-left: 10px;
+      padding: 5px;
+      max-width: 25%;
+    }
+    .idecont .col.eval.closed {
+      display: none;
+    }
+    .idecont .col.eval .output-cont {
+      max-height: 600px;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+    .idecont .col.eval .output-cont p {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 14px;
+      border-top: 1px solid gray;
+      padding: 10px 5px;
+      margin: 0;
+      word-break: break-all;
+    }
+  </style>
 </head>
 <body>
 
@@ -19,11 +95,433 @@
 
   <!-- Main Content -->
   <div class="container-fluid text-center mt-5">
-    <p>this is the main content</p>
+    <div class="code-editor" data-controller="code"></div>
   </div>
 
   <!-- Bootstrap 4 JS and dependencies from CDN -->
   <script src="./jquery3.5.1.slim.min.js"></script>
   <script src="./bootstrap.bundle.min.js"></script>
+  <script src="./editor/ace.js"></script>
+  <script src="./editor/ext-language_tools.js"></script>
+  <script src="./editor/ace-gara.js"></script>
+  <script src="./editor/polyfills/string_replace_all.js"></script>
+  <script src="./editor/wasm_exec.js"></script>
+  <script src="./editor/controller.js"></script>
+
+  <script type="module">
+    import { Application, Controller } from "./stimulus.js"
+    window.Stimulus = Application.start()
+    console.log("Stimulus started", window.Stimulus)
+
+    Stimulus.register("code", class extends Controller {
+      static values = {
+        /* the save dialog ID is the dialog ID that will be displayed when the user hit the save button;
+           the dialog shall be displayed only if the user's code is a fresh scratch and is not associated
+           with any problem */
+        saveDialogId: String,
+
+        /* the problem ID is specified if the code supposed to be an answer for a problem */
+        problemId: String,
+
+        /* the code ID, if present, the operation is an update instead of an insertion */
+        id: String,
+
+        /* the endpoint for saving the code that have been written */
+        upsertUrl: String,
+      }
+
+      canRun = false
+      mainIdeContEl = null
+      editor = null
+      editorEl = null
+      editorFirstInitAttempt = true // indicates whether it's first attempt trying to initialize the editor
+      separatorEl = null
+      evalContEl = null
+      evalOutputContEl = null
+      outputTogglerCallbackFn = null
+      runMenuClickCallbackFn = null
+      saveMenuClickCallbackFn = null
+      saveDialogEl = null // the dialog that will be displayed on save if the code is never saved before
+      codeId = null // the code id will be assigned either from the form or after the code is saved
+
+      connect() {
+          this.prepareHolders()
+          this.setupEvalOutputToggler()
+          this.setupOutputContainer()
+          this.setupEditor()
+
+          if (this.saveDialogIdValue) {
+              this.saveDialogEl = document.querySelector(`#${this.saveDialogIdValue}`)
+          }
+
+          if (this.idValue) {
+              this.codeId = this.idValue
+          }
+      }
+
+      disconnect() {
+          if (this.editor) { this.editor.destroy() }
+          document.removeEventListener("keyup", this.outputTogglerCallbackFn)
+
+          // the run menu might not be shown
+          if (this.menuRun()) {
+              this.menuRun().removeEventListener("click", this.runMenuClickCallbackFn)
+          }
+
+          // the save menu might not be shown
+          if (this.menuSave()) {
+              this.menuSave().removeEventListener("click", this.saveMenuClickCallbackFn)
+          }
+      }
+
+      prepareHolders() {
+          this.mainIdeContEl = document.createElement("div")
+          this.mainIdeContEl.classList.add("idecont")
+
+          const editorColEl = document.createElement("div")
+          editorColEl.classList.add("col")
+          editorColEl.classList.add("editor")
+          this.mainIdeContEl.appendChild(editorColEl)
+
+          this.editorEl = document.createElement("div")
+          this.editorEl.classList.add("editor-text")
+          editorColEl.appendChild(this.editorEl)
+
+          this.element.appendChild(this.mainIdeContEl)
+      }
+
+      setupEditor() {
+          if (typeof ace == "undefined") {
+              if (!this.editorFirstInitAttempt) console.warn("editor is not ready to be initialized yet...")
+              this.editorFirstInitAttempt = false;
+              setTimeout(this.setupEditor.bind(this), 100);
+              return
+          }
+
+          this.editor = ace.edit(this.editorEl)
+          this.editor.session.setTabSize(4)
+          this.editor.session.setUseSoftTabs(true)
+          this.editor.session.setUseWrapMode(true)
+
+          const editorCodeEl = document.querySelector("#editor-code")
+
+          // load code into the editor if any, otherwise use default hello world
+          if (editorCodeEl) {
+              this.editor.insert(editorCodeEl.innerHTML)
+          } else {
+              this.editor.insert('cetak("Halo, dunia");')
+          }
+
+          this.editor.session.setMode("ace/mode/gara")
+          this.editor.focus()
+
+          // close the eval panel by default
+          this.toggleOutput(true);
+
+          // make the editor able to send code code to be executed
+          this.wireWasm()
+
+          // make the editor able to save code for later retrieval
+          this.enableCodeSavingIfPossible()
+      }
+
+      setupEvalOutputToggler() {
+          this.separatorEl = document.createElement("div")
+          this.separatorEl.classList.add("col")
+          this.separatorEl.classList.add("sep")
+          this.separatorEl.title = "CTRL + \\"
+          this.mainIdeContEl.appendChild(this.separatorEl)
+
+          this.separatorEl.addEventListener("click", () => {
+              const isOpened = !this.separatorEl.classList.contains("closed")
+              this.toggleOutput(isOpened)
+          })
+
+          // listen to Ctrl + \
+          this.outputTogglerCallbackFn = (e) => {
+              const isOpened = !this.separatorEl.classList.contains("closed")
+
+              if (e.ctrlKey && (e.key === "\\")) {
+                  this.toggleOutput(isOpened)
+              }
+          }
+          document.addEventListener("keyup", this.outputTogglerCallbackFn)
+      }
+
+      setupOutputContainer() {
+          // evaluation result panel
+          this.evalContEl = document.createElement("div")
+          this.evalContEl.classList.add("col")
+          this.evalContEl.classList.add("eval")
+
+          const evalResultParaEl = document.createElement("p")
+          evalResultParaEl.innerText = "Hasil evaluasi:"
+          this.evalContEl.appendChild(evalResultParaEl)
+
+          this.evalOutputContEl = document.createElement("div")
+          this.evalOutputContEl.classList.add("output-cont")
+          this.evalContEl.appendChild(this.evalOutputContEl)
+
+          this.mainIdeContEl.appendChild(this.evalContEl)
+      }
+
+      toggleOutput(isOpened) {
+          const separatorEl = this.separatorEl
+          const outContEl = this.evalContEl
+
+          if (isOpened) {
+              separatorEl.classList.add("closed")
+              outContEl.classList.add("closed")
+          } else {
+              separatorEl.classList.remove("closed")
+              outContEl.classList.remove("closed")
+          }
+      }
+
+      startInterpreter() {
+          // do not attempt to start interpreter if the Go script has not been loaded
+          if (typeof Go === "undefined") {
+              console.warn("Wasm engine waiting necessary scripts to have been loaded...");
+              setTimeout(this.startInterpreter.bind(this), 100)
+              return;
+          }
+
+          if (!WebAssembly.instantiateStreaming) { // polyfill
+              WebAssembly.instantiateStreaming = async (resp, importObject) => {
+                  const source = await (await resp).arrayBuffer();
+                  return await WebAssembly.instantiate(source, importObject);
+              };
+          }
+
+          // show download indicator
+          const progCont = document.getElementById("progress-indicator")
+          progCont.classList.remove("hidden")
+
+          const go = new Go();
+          WebAssembly.instantiateStreaming(fetch("/gara.wasm"), go.importObject).then(
+              async (result) => {
+                  const inst = result.instance
+                  this.canRun = true
+
+                  // hides download indicator
+                  const progCont = document.getElementById("progress-indicator")
+                  progCont.classList.add("hidden")
+
+                  await go.run(inst)
+              }
+          )
+      }
+
+      evalCode(code) {
+          const result = window.__gara_eval(code)
+          this.flushOutputWith(result)
+      }
+
+      flushOutputWith(result) {
+          const otherOutputs = window.__gara_flush()
+
+          for (let i = 0; i < otherOutputs.length; i++) {
+              const o = otherOutputs[i]
+              this.addOutput(o)
+          }
+
+          this.addOutput(result)
+          this.toggleOutput(false)
+      }
+
+      wireWasm() {
+          this.startInterpreter()
+          const executeCode = (e) => {
+              if (!this.canRun) {
+                  alert("Gara masih mendownload file... coba lagi nanti")
+              }
+
+              this.clearOutput()
+
+              try {
+                  this.evalCode(this.editor.getValue())
+              } catch (e) {
+                  if (e.message.indexOf("exit") > 0) {
+                      this.startInterpreter()
+                  }
+
+                  console.error(e)
+                  this.addOutput("Program terpaksa diterminasi oleh sistem, harap periksa log dan laporkan masalah ini")
+              }
+
+              this.editor.focus()
+          }
+
+          this.runMenuClickCallbackFn = (e) => { e.preventDefault(); executeCode() }
+          this.menuRun().addEventListener("click", this.runMenuClickCallbackFn);
+
+          // list of keys => https://github.com/ajaxorg/ace/blob/v1.2.6/lib/ace/lib/keys.js#L51-L52
+          this.editor.commands.addCommand({
+              name: "Jalankan",
+              bindKey: { win: "Ctrl-Enter", mac: "Command-Enter" },
+              exec: executeCode,
+          })
+
+          let nextFontSize = 20;
+          this.editor.commands.addCommand({
+              name: "Besarkan font",
+              bindKey: { win: "Ctrl-=", mac: "Command-=" },
+              exec: () => {
+                  if (nextFontSize <= 20) nextFontSize = 20
+                  this.editor.setFontSize(nextFontSize)
+                  nextFontSize += 3
+              }
+          })
+
+          this.editor.commands.addCommand({
+              name: "Kecilkan font",
+              bindKey: { win: "Ctrl--", mac: "Command--" },
+              exec: () => {
+                  nextFontSize -= 3;
+                  if (nextFontSize <= 20) nextFontSize = 15
+                  this.editor.setFontSize(nextFontSize)
+              }
+          })
+      }
+
+      addOutput(stringable) {
+          const str = String(stringable).replaceAll("\n", "&#010;")
+          const p = document.createElement("p")
+          p.innerText = str
+
+          const escaped = p.innerText
+              .replaceAll("&", "&amp;")
+              .replaceAll(" ", "&nbsp;")
+              .replaceAll("<", "&lt;")
+              .replaceAll(">", "&gt;")
+              .replace('"', "&quot;")
+              .replace("'", "&#39;")
+
+          p.innerHTML = escaped.replaceAll("&amp;#010;", "<br/>")
+          this.outputContainer().appendChild(p)
+      }
+
+      // return the dialog controller responsible for the save modal dialog
+      saveDialogController() {
+          return this.application.getControllerForElementAndIdentifier(
+              this.saveDialogEl,
+              'modal-dialog'
+          )
+      }
+
+      enableCodeSavingIfPossible() {
+          const saveCode = () => {
+              if (this.problemIdValue) {
+                  this.save()
+              } else {
+                  if (!this.codeId) {
+                      // show the dialog only if it has never been saved before
+                      this.saveDialogController().showDialog()
+                      this.saveDialogEl.querySelector("input[type='text']").focus()
+                  } else {
+                      this.save()
+                  }
+              }
+          }
+
+          this.saveMenuClickCallbackFn = (e) => { e.preventDefault(); saveCode() }
+
+          // register even listener on click
+          if (this.menuSave()) {
+              this.menuSave().addEventListener("click", this.saveMenuClickCallbackFn)
+
+              // register Ctrl + S shortcut
+              this.editor.commands.addCommand({
+                  name: "Simpan",
+                  bindKey: { win: "Ctrl-S", mac: "Command-S" },
+                  exec: saveCode
+              })
+          }
+      }
+
+      // this method is used by action in the form
+      async handleSaveSubmissionFromForm(event) {
+          event.preventDefault()
+          const formData = new FormData(event.target.parentElement)
+
+          await this.save({ name: formData.get("code[name]") })
+          this.saveDialogController().hideDialog()
+      }
+
+      // perform actual saving process
+      async save(additional_payload = {}) {
+          const upsertEndpoint = this.upsertUrlValue
+          const code = this.editor.getValue()
+          const csrfToken = document.querySelector("[name='csrf-token']").content
+
+          // display the floppy disk
+          const floppyDiskIconEl = document.querySelector(".navbar .floppy-disk")
+          floppyDiskIconEl.setAttribute("style", "display: inline-block")
+
+          // parse query string, in case it has some assignment id info
+          const queryString = new Proxy(new URLSearchParams(window.location.search), {
+              get: (searchParams, prop) => searchParams.get(prop),
+          })
+
+          // define the payload
+          const payload = {
+              code: {
+                  ...additional_payload,
+                  id: this.codeId,
+                  problem_id: this.problemIdValue,
+                  solution: code,
+                  assignment_id: queryString.tugas
+              }
+          }
+
+          // send the upsert request
+          const result = await fetch(upsertEndpoint, {
+              method: "PATCH",
+              headers: {
+                  'Content-Type': 'application/json',
+                  'Accept': 'application/json',
+                  'X-Requested-With': 'XMLHttpRequest',
+                  'X-CSRF-Token': csrfToken
+              },
+              body: JSON.stringify(payload),
+              credentials: 'same-origin'
+          })
+
+          // hide the floppy disk
+          floppyDiskIconEl.removeAttribute("style")
+
+          // perform appropriate task depending on the response
+          const resultBody = await result.json()
+          if (resultBody.success) {
+              this.codeId = resultBody.code_id
+          } else {
+              if (resultBody.message) {
+                  alert(resultBody.message)
+              } else {
+                  alert("Tidak dapat menyimpan kode, harap ulangi lagi atau laporkan kesalahan ini.")
+              }
+          }
+
+          this.editor.focus()
+      }
+
+      clearOutput() {
+          this.outputContainer().innerHTML = ""
+      }
+
+      outputContainer() {
+          return this.evalOutputContEl
+      }
+
+      menuRun() {
+          return document.getElementById("excode")
+      }
+
+      menuSave() {
+          return document.getElementById("simpankode")
+      }
+    })
+  </script>
+
 </body>
 </html>
